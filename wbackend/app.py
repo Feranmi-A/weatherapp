@@ -45,6 +45,10 @@ def get_weather():
             })
         return jsonify(weather_data)
 
+@app.route("/")
+def serve_index():
+    return send_from_directory("templates', 'index.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5022)
+
