@@ -32,7 +32,7 @@ def serve_react():
 @app.route('/weather')
 def get_weather():
     weather_data = []
-        for city in CANADIAN_CITIES:
+    for city in CANADIAN_CITIES:
         url = f"http://api.openweathermap.org/data/2.5/weather?q={city},CA&appid={API_KEY}&units=metric"
         response = requests.get(url)
         if response.status_code == 200:
