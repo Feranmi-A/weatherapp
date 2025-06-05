@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  backend:
+      build:
+        context: ./wbackend
+        dockerfile: Dockerfile.backend
+      ports:
+      - "5022:5022"
+      environment:
+      - OWM_API_KEY
+      volumes:
+      - ./wbackend/templates:/app/templates
+      secrets:
+      - owm_api_key
+
+  frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile.frontend
+      ports:
+      - "5173:5173"  # Dev only
+      volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+secrets:
+  owm_api_key:
+    file: ./api_key.txt
