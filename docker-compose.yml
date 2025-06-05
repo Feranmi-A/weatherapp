@@ -3,7 +3,7 @@ services:
   backend:
       build:
         context: ./wbackend
-        dockerfile: Dockerfile.backend
+        dockerfile: Dockerfile
       ports:
       - "5022:5022"
       environment:
@@ -16,7 +16,7 @@ services:
   frontend:
       build:
         context: ./frontend
-        dockerfile: Dockerfile.frontend
+        dockerfile: Dockerfile
       ports:
       - "5173:5173"  # Dev only
       volumes:
